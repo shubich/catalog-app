@@ -1,0 +1,32 @@
+{
+  "name": "catalog-app",
+  "version": "1.0.0",
+  "description": "null",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubich/catalog-app.git"
+  },
+  "keywords": [
+    "javascript",
+    "node.js",
+    "express.js",
+    "mongodb"
+  ],
+  "author": "shubich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubich/catalog-app/issues"
+  },
+  "homepage": "https://github.com/shubich/catalog-app#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "jquery": "^3.2.1",
+    "style-loader": "^0.18.2"
+  }
+}
