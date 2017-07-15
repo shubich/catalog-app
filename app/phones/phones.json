@@ -1,0 +1,174 @@
+[{
+        "age": 0,
+        "id": "xiaomi-redmi-4x",
+        "imageUrl": "img/phones/mi-4x.jpeg",
+        "name": "Xiaomi Redmi 4X 16GB Black",
+        "snippet": "Android, экран 5\" IPS (720x1280), ОЗУ 2 ГБ, флэш-память 16 ГБ, карты памяти, камера 13 Мп, аккумулятор 4100 мАч, 2 SIM, цвет черный",
+        "price": "246,00 р."
+    },
+    {
+        "age": 1,
+        "id": "apple-iphone-7",
+        "imageUrl": "img/phones/apple-iphone-7.jpeg",
+        "name": "Apple iPhone 7 32GB Black",
+        "snippet": "Apple iOS, экран 4.7\" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, 1 SIM, цвет черный",
+        "price": "1399,00 р."
+    },
+    {
+        "age": 2,
+        "carrier": "AT&T",
+        "id": "samsung-galaxy-s8",
+        "imageUrl": "img/phones/samsung-s8.jpeg",
+        "name": "Samsung Galaxy S8 Dual SIM 64GB",
+        "snippet": "Android, экран 5.8\" AMOLED (1440x2960), ОЗУ 4 ГБ, флэш-память 64 ГБ, карты памяти, камера 12 Мп, аккумулятор 3000 мАч, 2 SIM, цвет черный",
+        "price": "1600,00 р."
+    },
+    {
+        "age": 3,
+        "id": "huawei-p8-lite",
+        "imageUrl": "img/phones/huawei-p8.jpeg",
+        "name": "Huawei P8 lite 2017 Black",
+        "snippet": "Android, экран 5.2\" IPS (1080x1920), ОЗУ 3 ГБ, флэш-память 16 ГБ, карты памяти, камера 12 Мп, аккумулятор 3000 мАч, 2 SIM, цвет черный",
+        "price": "455,00 р."
+    },
+    {
+        "age": 4,
+        "carrier": "МТС",
+        "id": "nokia-3310",
+        "imageUrl": "img/phones/nokia-3310.jpeg",
+        "name": "Nokia 3310 Dual SIM (синий)",
+        "snippet": "Nokia Series 30+, экран 2.4\" TFT (240x320), флэш-память 16 Мб, карты памяти, камера 2 Мп, аккумулятор 1200 мАч, 2 SIM, цвет синий",
+        "price": "129,00 р."
+    },
+    {
+        "age": 5,
+        "carrier": "life :)",
+        "id": "sony-xperia-xa1",
+        "imageUrl": "img/phones/sony-xa1.jpeg",
+        "name": "Sony Xperia XA1 Black",
+        "snippet": "Android, экран 5\" IPS (720x1280), ОЗУ 3 ГБ, флэш-память 32 ГБ, карты памяти, камера 23 Мп, аккумулятор 2300 мАч, 2 SIM, цвет черный",
+        "price": "610,00 р."
+    },
+    {
+        "age": 6,
+        "carrier": "AT&T",
+        "id": "meizu-m3-note",
+        "imageUrl": "img/phones/meizu-m3-note.jpg",
+        "name": "MEIZU M3 Note 16GB Gray",
+        "snippet": "Android, экран 5.5\" IPS (1080x1920), ОЗУ 2 ГБ, флэш-память 16 ГБ, карты памяти, камера 13 Мп, аккумулятор 4100 мАч, 2 SIM, цвет темно-серый",
+        "price": "319,00 р."
+    },
+    {
+        "age": 7,
+        "carrier": "Cellular South",
+        "id": "lg-g6",
+        "imageUrl": "img/phones/lg-g6.jpeg",
+        "name": "LG G6 Dual SIM (космический черный) [H870DS]",
+        "snippet": "Android, экран 5.7\" IPS (1440x2880), ОЗУ 4 ГБ, флэш-память 64 ГБ, карты памяти, камера 13 Мп, аккумулятор 3300 мАч, 2 SIM, цвет черный",
+        "price": "1200,00 р."
+    },
+    {
+        "age": 8,
+        "id": "apple-iphone-6s",
+        "imageUrl": "img/phones/apple-iphone-6s.jpg",
+        "name": "Apple iPhone 6s 16GB Silver",
+        "snippet": "Apple iOS, экран 4.7\" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 16 ГБ, камера 12 Мп, аккумулятор 1715 мАч, 1 SIM, цвет серебристый",
+        "price": "1120,00 р."
+    },
+    {
+        "age": 9,
+        "carrier": "velcom",
+        "id": "htc-one-m9",
+        "imageUrl": "img/phones/htc-one-m9.jpg",
+        "name": "HTC One M9 32GB Gray",
+        "snippet": "Android, экран 5\" PVA (SLCD) (1080x1920), ОЗУ 3 ГБ, флэш-память 32 ГБ, карты памяти, камера 20.7 Мп, аккумулятор 2840 мАч, 1 SIM, цвет темно-серый",
+        "price": "799,00 р."
+    },
+    {
+        "age": 10,
+        "carrier": "life :)",
+        "id": "lg-nexus-5x",
+        "imageUrl": "img/phones/lg-nexus-5x.jpg",
+        "name": "LG Nexus 5X 16GB Carbon",
+        "snippet": "Android, экран 5.2\" IPS (1080x1920), ОЗУ 2 ГБ, флэш-память 16 ГБ, камера 12 Мп, аккумулятор 2700 мАч, 1 SIM, цвет черный",
+        "price": "630,00 р."
+    },
+    {
+        "age": 11,
+        "carrier": "Verizon",
+        "id": "motorola-nexus-6",
+        "imageUrl": "img/phones/motorola-nexus-6.jpg",
+        "name": "Motorola Nexus 6 (64GB)",
+        "snippet": "Android, экран 6\" AMOLED (1440x2560), ОЗУ 3 ГБ, флэш-память 64 ГБ, камера 13 Мп, аккумулятор 3220 мАч, 1 SIM, цвет белый/синий",
+        "price": "799,00 р."
+    },
+    {
+        "age": 12,
+        "carrier": "AT&T",
+        "id": "htc-u11",
+        "imageUrl": "img/phones/htc-u11.jpeg",
+        "name": "HTC U11 64GB (черный)",
+        "snippet": "Android, экран 5.5\" IPS (1440x2560), ОЗУ 4 ГБ, флэш-память 64 ГБ, карты памяти, камера 12 Мп, аккумулятор 3000 мАч, 2 SIM, цвет черный",
+        "price": "1549,00 р."
+    },
+    {
+        "age": 13,
+        "carrier": "T-Mobile",
+        "id": "motorola-moto-x-style",
+        "imageUrl": "img/phones/motorola-moto-x-style.jpg",
+        "name": "Motorola Moto X Style 32GB White [XT1572]",
+        "snippet": "Android, экран 5.7\" IPS (1440x2560), ОЗУ 3 ГБ, флэш-память 32 ГБ, карты памяти, камера 21 Мп, аккумулятор 3000 мАч, 1 SIM, цвет белый/черный",
+        "price": "1050,00 р."
+    },
+    {
+        "age": 14,
+        "carrier": "T-Mobile",
+        "id": "nokia-6",
+        "imageUrl": "img/phones/nokia-6.jpeg",
+        "name": "Nokia 6 4GB/32GB (матовый черный)",
+        "snippet": "Android, экран 5.5\" IPS (1080x1920), ОЗУ 4 ГБ, флэш-память 32 ГБ, карты памяти, камера 16 Мп, аккумулятор 3000 мАч, 2 SIM, цвет черный",
+        "price": "599,00 р."
+    },
+    {
+        "age": 15,
+        "carrier": "US Cellular",
+        "id": "apple-iphone-se",
+        "imageUrl": "img/phones/apple-iphone-se.jpg",
+        "name": "Apple iPhone 5s 16GB Space Gray",
+        "snippet": "Apple iOS, экран 4\" IPS (640x1136), ОЗУ 1 ГБ, флэш-память 16 ГБ, камера 8 Мп, аккумулятор 1560 мАч, 1 SIM, цвет темно-серый",
+        "price": "620,00 р."
+    },
+    {
+        "age": 16,
+        "carrier": "Sprint",
+        "id": "samsung-galaxy-j5-prime",
+        "imageUrl": "img/phones/galaxy-j5-prime.jpeg",
+        "name": "Samsung Galaxy J5 Prime Black [G570F]",
+        "snippet": "Android, экран 5\" PLS (720x1280), ОЗУ 2 ГБ, флэш-память 16 ГБ, карты памяти, камера 13 Мп, аккумулятор 2400 мАч, 2 SIM, цвет черный",
+        "price": "390,00 р."
+    },
+    {
+        "age": 17,
+        "id": "highscreen-boost-3",
+        "imageUrl": "img/phones/Highscreen.jpeg",
+        "name": "Highscreen Boost 3 SE Black",
+        "snippet": "Android, экран 5\" IPS (1080x1920), ОЗУ 2 ГБ, флэш-память 16 ГБ, карты памяти, камера 13 Мп, аккумулятор 3100 мАч, 2 SIM, цвет черный",
+        "price": "612,53 р."
+    },
+    {
+        "age": 18,
+        "id": "samsung-galaxy-a3",
+        "imageUrl": "img/phones/galaxy-a3-2017.jpeg",
+        "name": "Samsung Galaxy A3 (2017) Black [A320F]",
+        "snippet": "Android, экран 4.7\" AMOLED (720x1280), ОЗУ 2 ГБ, флэш-память 16 ГБ, карты памяти, камера 13 Мп, аккумулятор 2350 мАч, 2 SIM, цвет черный",
+        "price": "650,00 р."
+    },
+    {
+        "age": 19,
+        "id": "nokia-230",
+        "imageUrl": "img/phones/nokia-230.jpg",
+        "name": "Nokia 230 Dark Silver",
+        "snippet": "экран 2.8\" TFT (240x320), ОЗУ 16 Мб, карты памяти, камера 2 Мп, аккумулятор 1200 мАч, 1 SIM, цвет серый/черный",
+        "price": "129,00 р."
+    }
+]

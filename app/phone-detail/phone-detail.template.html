@@ -1,38 +1,21 @@
 <div class="row">
     <!-- photos -->
     <div class="col-md-1">
-        <div class="thumbnail">
-            <img src="https://avatars.mds.yandex.net/get-mpic/195452/img_id4783826773129378920/1">
-        </div>
-        <div class="thumbnail">
-            <img src="https://avatars.mds.yandex.net/get-mpic/331398/img_id695528519618039669/1">
-        </div>
-        <div class="thumbnail">
-            <img src="https://avatars.mds.yandex.net/get-mpic/96484/img_id66401225491604707/1">
-        </div>
-        <div class="thumbnail">
-            <img src="https://avatars.mds.yandex.net/get-mpic/466729/img_id1424119088555673128/1">
+        <div class="thumbnail" ng-repeat="img in $ctrl.phone.images">
+            <img ng-src="{{img}}" class="img-responsive">
         </div>
     </div>
     <div class="col-md-4">
-        <img src="https://avatars.mds.yandex.net/get-mpic/195452/img_id4783826773129378920/9" class="img-responsive">
+        <img ng-src="{{$ctrl.phone.images[0]}}" class="img-responsive">
     </div>
     <div class="col-md-4">
-        <h3>КОРОТКО О ТОВАРЕ</h3>
+        <h3>{{$ctrl.phone.name}}</h3>
         <ul>
-            <li>смартфон, Android 7.0</li>
-            <li>поддержка двух SIM-карт</li>
-            <li>экран 5.8", разрешение 2960x1440</li>
-            <li>камера 12 МП, автофокус, F/1.7</li>
-            <li>память 64 Гб, слот для карты памяти</li>
-            <li>3G, 4G LTE, LTE-A, Wi-Fi, Bluetooth, NFC, GPS, ГЛОНАСС</li>
-            <li>объем оперативной памяти 4 Гб</li>
-            <li>аккумулятор 3000 мА⋅ч</li>
-            <li>вес 155 г, ШxВxТ 68.10x148.90x8 мм</li>
+            <li ng-repeat="el in $ctrl.phone.shortInfo">{{el}}</li>
         </ul>
     </div>
     <div class="col-md-3">
-        <h3>1 359 б.p.</h3>
+        <h3>{{$ctrl.phone.price}}</h3>
         <button type="button" class="btn btn-primary">В корзину</button>
     </div>
 </div>
