@@ -1,0 +1,119 @@
+<div class="row">
+    <div class="col-md-3 list-group list-group-item">
+        <div>
+            <p><b>Производитель</b></p>
+            <select class="form-control" id="sel1" ng-model="search.name">
+                <option value="">Все</option>
+                <option>Apple</option>
+                <option>Samsung</option>
+                <option>Xiaomi</option>
+                <option>Motorola</option>
+                <option>Huawei</option>
+                <option>Meizu</option>
+                <option>Nokia</option>
+                <option>LG</option>
+                <option>Sony</option>
+                <option>Highscreen</option>
+                <option>HTC</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <p><b>Минимальная цена</b></p>
+            <div class="row">
+                <div class="col-xs-6" style="padding-right: 0;">
+                    <input style="border-top-right-radius: 0; border-bottom-right-radius: 0;" type="text" class="form-control" placeholder="от" aria-describedby="basic-addon1">
+                </div>
+                <div class="col-xs-6" style="padding-left: 0;">
+                    <input style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none" type="text" class="form-control" placeholder="до" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <p><b>Дата выхода на рынок</b></p>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">2017</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">2016</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">2015</label>
+            </div>
+            <div class="row">
+                <div class="col-xs-6" style="padding-right: 0;">
+                    <input style="border-top-right-radius: 0; border-bottom-right-radius: 0;" type="text" class="form-control" placeholder="2013" aria-describedby="basic-addon1">
+                </div>
+                <div class="col-xs-6" style="padding-left: 0;">
+                    <input style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none" type="text" class="form-control" placeholder="2017" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <p><b>Операционная система</b></p>
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="search.snippet" ng-true-value="'Android'" ng-false-value="''">Android</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="search.snippet" ng-true-value="'Apple iOS'" ng-false-value="''">Apple iOS</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">Windows Phone</label>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <p><a href="">Дополнительные параметры</a></p>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <!-- phone -->
+        <div ng-repeat="phone in $ctrl.phones | filter:search">
+            <div class="row">
+                <!--img  -->
+                <div class="col-md-3 text-center">
+                    <a href="#!/phones/{{phone.id}}">
+                        <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" width="76">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <!-- name & price -->
+                    <div class="row" style="font-size: 125%">
+                        <div class="col-md-9">
+                            <b>
+                                <a href="#!/phones/{{phone.id}}" style="color: black;">
+                                    {{phone.name}}
+                                </a>
+                            </b>
+                        </div>
+                        <div class="col-md-3 text-right"><b>{{phone.price}}</b></div>
+                    </div>
+                    <br>
+                    <!-- description -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>{{phone.snippet}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+</div>
+<!-- /.row -->
+
+<nav aria-label="..." class="text-center">
+    <ul class="pagination">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+    </ul>
+</nav>

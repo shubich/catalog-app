@@ -4,7 +4,8 @@
   "description": "null",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./app -a localhost -p 8000 -c-1"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,14 @@
   },
   "homepage": "https://github.com/shubich/catalog-app#readme",
   "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-resource": "^1.6.5",
+    "angular-route": "^1.6.5",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
+    "http-server": "^0.10.0",
     "jquery": "^3.2.1",
     "style-loader": "^0.18.2"
   }
