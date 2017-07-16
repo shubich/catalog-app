@@ -22,7 +22,3 @@ require("./app/phone-detail/phone-detail.module.js");
 require("./app/phone-detail/phone-detail.component.js");
 
 //require("./node_modules/angular-file-upload/dist/angular-file-upload.min.js");
-
-
-// require("./app.module.js");
-// require("./app.config.js");

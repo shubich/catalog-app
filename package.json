@@ -1,38 +1,44 @@
 {
-  "name": "catalog-app",
-  "version": "1.0.0",
-  "description": "null",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ./app -a localhost -p 8000 -c-1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shubich/catalog-app.git"
-  },
-  "keywords": [
-    "javascript",
-    "node.js",
-    "express.js",
-    "mongodb"
-  ],
-  "author": "shubich",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/shubich/catalog-app/issues"
-  },
-  "homepage": "https://github.com/shubich/catalog-app#readme",
-  "dependencies": {
-    "angular": "^1.6.5",
-    "angular-animate": "^1.6.5",
-    "angular-resource": "^1.6.5",
-    "angular-route": "^1.6.5",
-    "bootstrap": "^3.3.7",
-    "css-loader": "^0.28.4",
-    "file-loader": "^0.11.2",
-    "http-server": "^0.10.0",
-    "jquery": "^3.2.1",
-    "style-loader": "^0.18.2"
-  }
+    "name": "catalog-app",
+    "version": "1.0.0",
+    "description": "Catalog application",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server ./app -a localhost -p 8000 -c-1",
+        "server": "babel-node server/app.js",
+        "webpack-devserver": "webpack-dev-server --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base app --port 8090 --host 0.0.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shubich/catalog-app.git"
+    },
+    "keywords": [
+        "javascript",
+        "node.js",
+        "express.js",
+        "mongodb"
+    ],
+    "author": "shubich",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/shubich/catalog-app/issues"
+    },
+    "homepage": "https://github.com/shubich/catalog-app#readme",
+    "dependencies": {
+        "angular": "^1.6.5",
+        "angular-animate": "^1.6.5",
+        "angular-resource": "^1.6.5",
+        "angular-route": "^1.6.5",
+        "body-parser": "^1.17.2",
+        "bootstrap": "^3.3.7",
+        "cors": "^2.8.4",
+        "css-loader": "^0.28.4",
+        "express": "^4.15.3",
+        "file-loader": "^0.11.2",
+        "http-server": "^0.10.0",
+        "jquery": "^3.2.1",
+        "mongoose": "^4.11.3",
+        "style-loader": "^0.18.2"
+    }
 }

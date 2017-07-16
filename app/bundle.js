@@ -539,10 +539,6 @@ __webpack_require__(32);
 
 //require("./node_modules/angular-file-upload/dist/angular-file-upload.min.js");
 
-
-// require("./app.module.js");
-// require("./app.config.js");
-
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5508,19 +5504,18 @@ angular.module('core.phone', ['ngResource']);
 
 
 angular.
-  module('core.phone').
-  factory('Phone', ['$resource',
+module('core.phone').
+factory('Phone', ['$resource',
     function($resource) {
-      return $resource('phones/:phoneId.json', {}, {
-        query: {
-          method: 'GET',
-          params: {phoneId: 'phones'},
-          isArray: true
-        }
-      });
+        return $resource('/phones', {}, {
+            query: {
+                method: 'GET',
+                //params: { phoneId: 'phones' },
+                isArray: true
+            }
+        });
     }
-  ]);
-
+]);
 
 /***/ }),
 /* 29 */
