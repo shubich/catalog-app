@@ -20,7 +20,9 @@ app.use(cors({ origin: '*' }));
 
 // RESTful api handlers
 app.get('/phones', (req, res) => {
-    db.listPhones().then(data => res.send(data));
+    var page = 1;
+    if (req.query.page) page = req.query.page;
+    db.listPhones(req.query.page).then(data => res.send(data));
 });
 
 app.get('/phones/:id', (req, res) => {

@@ -10,8 +10,10 @@ export function setUpConnection() {
     mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 }
 
-export function listPhones(id) {
-    return Phone.find();
+export function listPhones(page) {
+    var limit = 5;
+    var start = page * limit - limit;
+    return Phone.find().skip(start).limit(limit);
 }
 
 export function getPhone(id) {
