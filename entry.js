@@ -14,6 +14,7 @@ require("./app/app.config.js");
 require("./app/app.animations.js");
 require("./app/core/core.module.js");
 require("./app/core/checkmark/checkmark.filter.js");
+require("./app/core/range/range.filter.js");
 require("./app/core/phone/phone.module.js");
 require("./app/core/phone/phone.service.js");
 require("./app/phone-list/phone-list.module.js");

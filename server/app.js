@@ -3,6 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import { serverPort } from '../etc/config.json';
+import { recordLimit } from '../etc/config.json';
 
 import * as db from './utils/DataBaseUtils';
 
@@ -20,9 +21,21 @@ app.use(cors({ origin: '*' }));
 
 // RESTful api handlers
 app.get('/phones', (req, res) => {
-    var page = 1;
-    if (req.query.page) page = req.query.page;
-    db.listPhones(req.query.page).then(data => res.send(data));
+    var curPage = req.query.page ? req.query.page : 1;
+
+    db.listPhones(curPage, recordLimit).then(data => {
+        res.send(data);
+    });
+});
+
+app.get('/info', (req, res) => {
+    db.countPhones().then(data => {
+        res.send({
+            count: data,
+            pages: data / recordLimit,
+            recordLimit: recordLimit
+        });
+    });
 });
 
 app.get('/phones/:id', (req, res) => {

@@ -5507,7 +5507,7 @@ angular.
 module('core.phone').
 factory('Phone', ['$resource',
     function($resource) {
-        return $resource('/phones', {}, {
+        return $resource('http://localhost:8080/phones/:phoneId', {}, {
             query: {
                 method: 'GET',
                 //params: { phoneId: 'phones' },
@@ -5525,8 +5525,7 @@ factory('Phone', ['$resource',
 
 
 // Define the `phoneList` module
-angular.module('phoneList', ['core.phone']);
-
+angular.module('phoneList', ['core.phone', 'ngResource']);
 
 /***/ }),
 /* 30 */
@@ -5537,17 +5536,33 @@ angular.module('phoneList', ['core.phone']);
 
 // Register `phoneList` component, along with its associated controller and template
 angular.
-  module('phoneList').
-  component('phoneList', {
+module('phoneList').
+component('phoneList', {
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: ['Phone',
-      function PhoneListController(Phone) {
-        this.phones = Phone.query();
-        this.orderProp = 'age';
-      }
-    ]
-  });
+    controller: ['Phone', '$resource',
+        function PhoneListController(Phone, $resource) {
+            var self = this;
 
+            self.phones = Phone.query();
+
+            var Count = $resource('http://localhost:8080/info', {});
+            Count.get({}, function(data) {
+                self.count = data.count;
+                //alert(self.count);
+            });
+
+            self.orderProp = 'age';
+
+            self.toThePage = function(page) {
+                Phone.query({ page: page }, function(phones) {
+                    self.phones = phones;
+                });
+            };
+
+
+        }
+    ]
+});
 
 /***/ }),
 /* 31 */
