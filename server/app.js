@@ -32,7 +32,7 @@ app.get('/info', (req, res) => {
     db.countPhones().then(data => {
         res.send({
             count: data,
-            pages: data / recordLimit,
+            pages: Math.ceil(data / recordLimit),
             recordLimit: recordLimit
         });
     });

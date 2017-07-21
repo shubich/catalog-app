@@ -21,15 +21,16 @@ component('phoneList', {
             self.orderProp = 'age';
 
             self.setPages = function(cur, num) {
-                var leftPage = (cur > 2) ? (cur - 2) : cur;
+                var leftPage = (cur > 2) ? (cur - 2) : 1;
                 var rightPage = (leftPage + 4) < num ? (leftPage + 4) : num;
+
+                // Поддерживаем диапазон в 4 единицы если это возможно
+                leftPage = (rightPage - leftPage) < 4 ? (rightPage - 4) : leftPage;
 
                 self.pages = {
                     left: leftPage,
                     right: rightPage
                 };
-                console.log(self.pages);
-
             };
 
             self.toThePage = function(page) {
