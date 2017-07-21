@@ -25,7 +25,7 @@ component('phoneList', {
                 var rightPage = (leftPage + 4) < num ? (leftPage + 4) : num;
 
                 // Поддерживаем диапазон в 4 единицы если это возможно
-                leftPage = (rightPage - leftPage) < 4 ? (rightPage - 4) : leftPage;
+                leftPage = (rightPage - 4) > 0 ? (rightPage - 4) : 1;
 
                 self.pages = {
                     left: leftPage,
