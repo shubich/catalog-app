@@ -75,7 +75,7 @@
                 <!--img  -->
                 <div class="col-md-3 text-center">
                     <a href="#!/phones/{{phone._id}}">
-                        <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" width="76">
+                        <img ng-src="{{phone.picture[0]}}" alt="{{phone.name}}" width="76">
                     </a>
                 </div>
                 <div class="col-md-9">
@@ -88,13 +88,13 @@
                                 </a>
                             </b>
                         </div>
-                        <div class="col-md-3 text-right"><b>{{phone.price}}</b></div>
+                        <div class="col-md-3 text-right"><b>{{phone.price | currency:default:0}}</b></div>
                     </div>
                     <br>
                     <!-- description -->
                     <div class="row">
                         <div class="col-md-12">
-                            <p>{{phone.snippet}}</p>
+                            <p>{{phone.description.substring(0, 300)}}</p>
                         </div>
                     </div>
                 </div>

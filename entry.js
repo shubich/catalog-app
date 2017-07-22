@@ -8,6 +8,7 @@ require("./node_modules/angular/angular.min.js");
 require("./node_modules/angular-resource/angular-resource.min.js");
 require("./node_modules/angular-route/angular-route.min.js");
 require("./node_modules/angular-animate/angular-animate.js");
+require("./node_modules/angular-i18n/angular-locale_ru-ru.js");
 
 require("./app/app.module.js");
 require("./app/app.config.js");

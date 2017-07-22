@@ -27,9 +27,9 @@ export function getPhone(id) {
 export function createPhone(data) {
     const phone = new Phone({
         name: data.name,
-        snippet: data.snippet,
+        description: data.snippet,
         price: data.price,
-        imageUrl: data.imageUrl
+        picture: data.picture
     });
 
     return phone.save();
