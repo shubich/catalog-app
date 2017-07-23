@@ -17,7 +17,13 @@ export function countPhones() {
 export function listPhones(curPage, limit) {
     var start = curPage * limit - limit;
 
-    return Phone.find().skip(start).limit(limit);
+    return Phone.find({
+        param: {
+            $all: [
+                { "$elemMatch": { "@name": "Операционная система", "#text": /Android/ } }
+            ]
+        }
+    }).skip(start).limit(limit);
 }
 
 export function getPhone(id) {

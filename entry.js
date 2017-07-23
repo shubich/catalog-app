@@ -22,5 +22,3 @@ require("./app/phone-list/phone-list.module.js");
 require("./app/phone-list/phone-list.component.js");
 require("./app/phone-detail/phone-detail.module.js");
 require("./app/phone-detail/phone-detail.component.js");
-
-//require("./node_modules/angular-file-upload/dist/angular-file-upload.min.js");
