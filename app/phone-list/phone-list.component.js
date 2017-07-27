@@ -8,17 +8,35 @@ component('phoneList', {
     controller: ['Phone', '$resource',
         function PhoneListController(Phone, $resource) {
             var self = this;
+            self.search = {};
+            self.curPage = 1;
 
             self.phones = Phone.query(function() {
                 self.setPhoneInfo();
             });
-            self.curPage = 1;
 
             var Info = $resource('http://localhost:8080/info', {});
             Info.get({}, function(data) {
                 self.info = data;
                 self.setPages(self.curPage, data.pages);
             });
+
+            var Facets = $resource('http://localhost:8080/facets/:field', {});
+            Facets.query({ field: "vendor" }, function(data) {
+                self.vendors = data.sort();
+            })
+
+            self.find = function() {
+                Phone.query({ search: self.search }, function(phones) {
+                    self.phones = phones;
+                    self.setPhoneInfo();
+                    self.curPage = 1;
+                    Info.get({ search: self.search }, function(data) {
+                        self.info = data;
+                        self.setPages(self.curPage, data.pages);
+                    });
+                });
+            }
 
             //self.orderProp = 'age';
 
@@ -39,7 +57,6 @@ component('phoneList', {
                             self.phones[i].info[name] = text + ' ' + unit;
                         }
                     }
-                    console.log(self.phones[i].info);
                 }
             };
 
@@ -74,7 +91,7 @@ component('phoneList', {
             };
 
             self.toThePage = function(page) {
-                Phone.query({ page: page }, function(phones) {
+                Phone.query({ page: page, search: self.search }, function(phones) {
                     self.phones = phones;
                     self.setPhoneInfo();
                     self.curPage = page;

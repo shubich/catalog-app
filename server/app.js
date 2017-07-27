@@ -22,14 +22,17 @@ app.use(cors({ origin: '*' }));
 // RESTful api handlers
 app.get('/phones', (req, res) => {
     var curPage = req.query.page ? req.query.page : 1;
+    var search = req.query.search ? JSON.parse(req.query.search) : {};
 
-    db.listPhones(curPage, recordLimit).then(data => {
+    db.listPhones(search, curPage, recordLimit).then(data => {
         res.send(data);
     });
 });
 
 app.get('/info', (req, res) => {
-    db.countPhones().then(data => {
+    var search = req.query.search ? JSON.parse(req.query.search) : {};
+
+    db.countPhones(search).then(data => {
         res.send({
             count: data,
             pages: Math.ceil(data / recordLimit),
@@ -49,6 +52,10 @@ app.post('/phones', (req, res) => {
 app.delete('/phones/:id', (req, res) => {
     db.deletePhone(req.params.id).then(data => res.send(data));
 });
+
+app.get('/facets/:field', (req, res) => {
+    db.getFieldValues(req.params.field).then(data => res.send(data));
+})
 
 const server = app.listen(serverPort, function() {
     console.log(`Server is up and running on port ${serverPort}`);

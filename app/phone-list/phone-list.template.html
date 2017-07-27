@@ -2,19 +2,9 @@
     <div class="col-md-3 list-group list-group-item">
         <div>
             <p><b>Производитель</b></p>
-            <select class="form-control" id="sel1" ng-model="search.name">
+            <select class="form-control" id="sel1" ng-model="$ctrl.search.vendor" ng-change="$ctrl.find()">
                 <option value="">Все</option>
-                <option>Apple</option>
-                <option>Samsung</option>
-                <option>Xiaomi</option>
-                <option>Motorola</option>
-                <option>Huawei</option>
-                <option>Meizu</option>
-                <option>Nokia</option>
-                <option>LG</option>
-                <option>Sony</option>
-                <option>Highscreen</option>
-                <option>HTC</option>
+                <option ng-repeat="vendor in $ctrl.vendors">{{vendor}}</option>
             </select>
         </div>
         <br>
@@ -70,25 +60,25 @@
     </div>
     <div class="col-md-9">
         <!-- phone -->
-        <div ng-repeat="phone in $ctrl.phones | filter:search">
+        <div ng-repeat="phone in $ctrl.phones">
             <div class="row">
                 <!--img  -->
                 <div class="col-md-3 text-center">
                     <a href="#!/phones/{{phone._id}}">
-                        <img ng-src="{{phone.picture[0]}}" alt="{{phone.name}}" width="76">
+                        <img ng-src="{{phone.picture[0]}}" alt="{{phone.name}}" height="150">
                     </a>
                 </div>
                 <div class="col-md-9">
                     <!-- name & price -->
                     <div class="row" style="font-size: 125%">
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <b>
                                 <a href="#!/phones/{{phone._id}}" style="color: black;">
                                     {{phone.name}}
                                 </a>
                             </b>
                         </div>
-                        <div class="col-md-3 text-right"><b>{{phone.price | currency:default:0}}</b></div>
+                        <div class="col-md-2 text-right"><b>{{phone.price | currency:default:0}}</b></div>
                     </div>
                     <br>
                     <!-- description -->

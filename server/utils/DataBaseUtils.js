@@ -10,20 +10,14 @@ export function setUpConnection() {
     mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 }
 
-export function countPhones() {
-    return Phone.count();
+export function countPhones(search) {
+    return Phone.count(search);
 }
 
-export function listPhones(curPage, limit) {
+export function listPhones(search, curPage, limit) {
     var start = curPage * limit - limit;
 
-    return Phone.find({
-        param: {
-            $all: [
-                { "$elemMatch": { "@name": "Операционная система", "#text": /Android/ } }
-            ]
-        }
-    }).skip(start).limit(limit);
+    return Phone.find(search).skip(start).limit(limit);
 }
 
 export function getPhone(id) {
@@ -43,4 +37,8 @@ export function createPhone(data) {
 
 export function deletePhone(id) {
     return Phone.findById(id).remove();
+}
+
+export function getFieldValues(field) {
+    return Phone.distinct(field);
 }
