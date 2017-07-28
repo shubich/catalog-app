@@ -44,10 +44,10 @@
         <div>
             <p><b>Операционная система</b></p>
             <div class="checkbox">
-                <label><input type="checkbox" ng-model="search.snippet" ng-true-value="'Android'" ng-false-value="''">Android</label>
+                <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', 'Android')">Android</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" ng-model="search.snippet" ng-true-value="'Apple iOS'" ng-false-value="''">Apple iOS</label>
+                <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', 'iOS')">Apple iOS</label>
             </div>
             <div class="checkbox">
                 <label><input type="checkbox" value="">Windows Phone</label>
@@ -96,7 +96,7 @@
 </div>
 <!-- /.row -->
 
-<nav aria-label="..." class="text-center">
+<nav aria-label="..." class="text-center" ng-if="$ctrl.info.pages > 1">
     <ul class="pagination">
         <li ng-click="$ctrl.toThePage(1)" ng-class="$ctrl.curPage == '1' ? 'disabled' : ''"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
         <li ng-repeat="n in [] | range:$ctrl.pages.left:$ctrl.pages.right" ng-class="$ctrl.curPage == n ? 'active' : ''" ng-click="$ctrl.toThePage(n)">

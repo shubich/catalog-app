@@ -26,7 +26,40 @@ component('phoneList', {
                 self.vendors = data.sort();
             })
 
+            self.delEmptyFields = function(obj) {
+                for (var key in obj) {
+                    var value = obj[key];
+                    if (value === "" || value === null) {
+                        delete obj[key];
+                    } else if (Object.prototype.toString.call(value) === '[object Object]') {
+                        self.delEmptyFields(value);
+                    } else if ($.isArray(value)) {
+                        for (var k in value) {
+                            self.delEmptyFields(value[k]);
+                        }
+                    }
+                }
+            }
+
+            self.setParam = function(name, text) {
+                if (!self.search.param) self.search.param = [];
+                self.search.param.push({
+                    "@name": name,
+                    "#text": text
+                });
+                console.log(self.search.param);
+            }
+
             self.find = function() {
+                self.delEmptyFields(self.search);
+                // self.search.param = [{
+                //     "@name": "Операционная система",
+                //     "#text": "iOS"
+                // }, {
+                //     "@name": "Цвет",
+                //     "#text": "Silver"
+                // }];
+
                 Phone.query({ search: self.search }, function(phones) {
                     self.phones = phones;
                     self.setPhoneInfo();
@@ -38,7 +71,6 @@ component('phoneList', {
                 });
             }
 
-            //self.orderProp = 'age';
 
             self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
 

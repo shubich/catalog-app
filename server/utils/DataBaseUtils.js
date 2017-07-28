@@ -17,6 +17,14 @@ export function countPhones(search) {
 export function listPhones(search, curPage, limit) {
     var start = curPage * limit - limit;
 
+    if (search.param) {
+        var tmp = [];
+        for (var key in search.param) {
+            tmp.push(search.param[key]);
+        }
+        search.param = { $all: tmp };
+    }
+
     return Phone.find(search).skip(start).limit(limit);
 }
 
