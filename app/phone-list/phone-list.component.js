@@ -10,6 +10,16 @@ component('phoneList', {
             var self = this;
             self.search = {};
             self.curPage = 1;
+            self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
+
+            self.properties = {
+                "Операционная система": {
+                    "Android": false,
+                    "iOS": false,
+                    "Windows": false
+                }
+            };
+
 
             self.phones = Phone.query(function() {
                 self.setPhoneInfo();
@@ -42,23 +52,22 @@ component('phoneList', {
             }
 
             self.setParam = function(name, text) {
-                if (!self.search.param) self.search.param = [];
-                self.search.param.push({
-                    "@name": name,
-                    "#text": text
-                });
-                console.log(self.search.param);
+                if (!self.search.param) self.search.param = {};
+                if (!self.search.param[name]) self.search.param[name] = [];
+                var id = self.search.param[name].indexOf(text);
+
+                if (id == -1) self.search.param[name].push(text);
+                else self.search.param[name].splice(id, 1);
+
+                if (!self.search.param[name].length) delete self.search.param[name];
+                //I know that it trash but life is so short
+                if (jQuery.isEmptyObject(self.search.param)) delete self.search.param;
+
+                self.find();
             }
 
             self.find = function() {
                 self.delEmptyFields(self.search);
-                // self.search.param = [{
-                //     "@name": "Операционная система",
-                //     "#text": "iOS"
-                // }, {
-                //     "@name": "Цвет",
-                //     "#text": "Silver"
-                // }];
 
                 Phone.query({ search: self.search }, function(phones) {
                     self.phones = phones;
@@ -70,9 +79,6 @@ component('phoneList', {
                     });
                 });
             }
-
-
-            self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
 
             self.setPhoneInfo = function() {
                 for (var i = 0; i < self.phones.length; i++) {

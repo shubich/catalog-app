@@ -20,9 +20,14 @@ export function listPhones(search, curPage, limit) {
     if (search.param) {
         var tmp = [];
         for (var key in search.param) {
-            tmp.push(search.param[key]);
+            var values = [];
+            for (var i = 0; i < search.param[key].length; i++) {
+                values.push({ "@name": key, "#text": new RegExp(search.param[key][i]) });
+            }
+            tmp.push({ "$elemMatch": { $or: values } });
         }
         search.param = { $all: tmp };
+        //console.log(tmp);
     }
 
     return Phone.find(search).skip(start).limit(limit);
