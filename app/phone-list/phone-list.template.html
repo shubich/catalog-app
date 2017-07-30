@@ -43,36 +43,15 @@
         <br>
         <div>
             <p><b>Операционная система</b></p>
-            <div class="checkbox">
-                <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', 'Android')">Android</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', 'iOS')">iOS</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="" ng-click="$ctrl.setParam('Операционная система', 'Windows 10 mobile')">Windows</label>
+            <div class="checkbox" ng-repeat="os in $ctrl.facets['Операционная система']">
+                <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', os)">{{os}}</label>
             </div>
         </div>
         <br>
         <div>
             <p><b>Размер экрана</b></p>
-            <div class="checkbox">
-                <label><input type="checkbox" ng-click="$ctrl.setParam('Диагональ', '^[^4-9]')">менее 4"</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" ng-click="$ctrl.setParam('Диагональ', '^4\.[0-5]')">4 - 4.5"</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="" ng-click="$ctrl.setParam('Диагональ', '^4\.[5-9]')">4.5 - 5"</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="" ng-click="$ctrl.setParam('Диагональ', '^5\.[0-5]')">5 - 5.5"</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="" ng-click="$ctrl.setParam('Диагональ', '^5\.[5-9]')">5.5 - 6"</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="" ng-click="$ctrl.setParam('Диагональ', '^[6-7]\.[0-9]')">6" и более</label>
+            <div class="checkbox" ng-repeat="diagonal in $ctrl.facets['Диагональ']">
+                <label><input type="checkbox" ng-click="$ctrl.setParam('Диагональ', diagonal.value)">{{diagonal.name}}</label>
             </div>
         </div>
         <hr>

@@ -22,6 +22,18 @@ component('phoneList', {
                 self.setPages(self.curPage, data.pages);
             });
 
+            self.facets = {
+                "Операционная система": ["Android", "iOS", "Windows"],
+                "Диагональ": [
+                    { name: 'менее 4"', value: '^[0-3]' },
+                    { name: '4 - 4.5"', value: '^4\.[0-5]' },
+                    { name: '4.5 - 5"', value: '^4\.[5-9]|^5[^0-9]$' },
+                    { name: '5 - 5.5"', value: '^5[^0-9]$|^5\.[0-5]' },
+                    { name: '5.5 - 6"', value: '^5\.[5-9]|^6[^0-9]$' },
+                    { name: '6" и более', value: '^[6-7]' }
+                ]
+            }
+
             var Facets = $resource('http://localhost:8080/facets/:field', {});
             Facets.query({ field: "vendor" }, function(data) {
                 self.vendors = data.sort();
