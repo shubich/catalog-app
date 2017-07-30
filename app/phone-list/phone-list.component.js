@@ -12,15 +12,6 @@ component('phoneList', {
             self.curPage = 1;
             self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
 
-            self.properties = {
-                "Операционная система": {
-                    "Android": false,
-                    "iOS": false,
-                    "Windows": false
-                }
-            };
-
-
             self.phones = Phone.query(function() {
                 self.setPhoneInfo();
             });
@@ -60,7 +51,7 @@ component('phoneList', {
                 else self.search.param[name].splice(id, 1);
 
                 if (!self.search.param[name].length) delete self.search.param[name];
-                //I know that it trash but life is so short
+                //I know that's trash but, life is so short
                 if (jQuery.isEmptyObject(self.search.param)) delete self.search.param;
 
                 self.find();
@@ -92,7 +83,7 @@ component('phoneList', {
                         var unit = self.phones[i].param[j]["@unit"] ? ' ' + self.phones[i].param[j]["@unit"] : '';
 
                         if (self.params.includes(name)) {
-                            self.phones[i].info[name] = text + ' ' + unit;
+                            self.phones[i].info[name] = text + unit;
                         }
                     }
                 }
@@ -100,17 +91,9 @@ component('phoneList', {
 
             self.getPhoneInfo = function(data) {
                 var info = '';
-                info += data["Операционная система"] ? data["Операционная система"] + ', ' : '';
-                info += data["Диагональ"] ? data["Диагональ"] + ' ' : '';
-                info += data["Технология матрицы"] ? data["Технология матрицы"] + ' ' : '';
-                info += data["Разрешение"] ? data["Разрешение"] + ', ' : '';
-                info += data["Оперативная память"] ? ' ОЗУ ' + data["Оперативная память"] + ', ' : '';
-                info += data["Встроенная память"] ? 'флэш-память ' + data["Встроенная память"] + ', ' : '';
-                info += data["Поддержка карт памяти"] ? 'карты памяти' + ', ' : '';
-                info += data["Разрешение основной тыловой камеры"] ? 'камера ' + data["Разрешение основной тыловой камеры"] + ', ' : '';
-                info += data["Емкость аккумулятора"] ? 'аккумулятор ' + data["Емкость аккумулятора"] + ', ' : '';
-                info += data["Число SIM-карт"] ? data["Число SIM-карт"] + 'SIM, ' : '';
-                info += data["Цвет"] ? 'цвет ' + data["Цвет"] + ', ' : '';
+                self.params.forEach(function(item) {
+                    info += data[item] ? item + ' ' + data[item] + ', ' : '';
+                });
 
                 return info.slice(0, -2);
             }

@@ -10,26 +10,26 @@ export function setUpConnection() {
     mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 }
 
+function reParam(params) {
+    var reParams = [];
+    for (var key in params) {
+        var values = [];
+        for (var i = 0; i < params[key].length; i++) {
+            values.push({ "@name": key, "#text": new RegExp(params[key][i]) });
+        }
+        reParams.push({ "$elemMatch": { $or: values } });
+    }
+    return { $all: reParams };
+}
+
 export function countPhones(search) {
+    if (search.param) search.param = reParam(search.param);
     return Phone.count(search);
 }
 
 export function listPhones(search, curPage, limit) {
     var start = curPage * limit - limit;
-
-    if (search.param) {
-        var tmp = [];
-        for (var key in search.param) {
-            var values = [];
-            for (var i = 0; i < search.param[key].length; i++) {
-                values.push({ "@name": key, "#text": new RegExp(search.param[key][i]) });
-            }
-            tmp.push({ "$elemMatch": { $or: values } });
-        }
-        search.param = { $all: tmp };
-        //console.log(tmp);
-    }
-
+    if (search.param) search.param = reParam(search.param);
     return Phone.find(search).skip(start).limit(limit);
 }
 
