@@ -1,23 +1,57 @@
 <div class="row">
     <!-- photos -->
     <div class="col-md-1">
-        <div class="thumbnail" ng-repeat="img in $ctrl.phone.images">
-            <img ng-src="{{img}}" class="img-responsive">
+        <div style="height:60px;" class="thumbnail" ng-repeat="img in $ctrl.phone.picture" ng-click="$ctrl.setImage(img)">
+            <img style="max-height:50px;" ng-src="{{img}}" class="img-responsive">
         </div>
     </div>
     <div class="col-md-4">
-        <img ng-src="{{$ctrl.phone.images[0]}}" class="img-responsive">
+        <img class="img-responsive center-block" style="max-height: 600px;" ng-src="{{$ctrl.mainImageUrl}}" />
+        <!-- <img ng-src="{{$ctrl.phone.picture[0]}}" class="img-responsive"> -->
     </div>
-    <div class="col-md-4">
-        <h3>{{$ctrl.phone.name}}</h3>
-        <ul>
-            <li ng-repeat="el in $ctrl.phone.shortInfo">{{el}}</li>
-        </ul>
+    <div class="col-xs-7">
+        <div class="row">
+            <h3>{{$ctrl.phone.name}}</h3>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row my-short-info" ng-repeat="el in $ctrl.phone.param" ng-if="$ctrl.params.includes(el['@name'])">
+                    <div class="col-xs-6">{{el['@name']}}</div>
+                    <div class="col-xs-6">{{el['#text'] + ' ' + el['@unit']}}</div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>{{$ctrl.phone.price | currency:default:0}}</h3>
+                    </div>
+                    <div class="panel-footer bg-blue color-white" style="cursor: pointer" onclick="alert('later')">Добавить в корзину</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h3>{{$ctrl.phone.price}}</h3>
-        <button type="button" class="btn btn-primary">В корзину</button>
+
+</div>
+<div class="row">
+    <div class="col-xs-10">
+        <h3>Описание</h3>
+
+        {{$ctrl.phone.description}}
     </div>
 </div>
 
+<div class="row">
+    <div class="col-xs-10">
+        <h3>Характеристики</h3>
+        <div class="row my-full-info" ng-repeat="el in $ctrl.phone.param">
+            <div class="col-xs-6">{{el['@name']}}</div>
+            <div class="col-xs-6">{{el['#text'] + ' ' + el['@unit']}}</div>
+        </div>
+    </div>
+</div>
+
+
 <br>
+<br>
+<!-- 
+style="background:top right url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAANCAIAAAABnFjhAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABxJREFUeNpi/P//PwMMMDEggUHAuX79OpwDEGAAGB4FnHfhVQUAAAAASUVORK5CYII=') repeat-x" -->

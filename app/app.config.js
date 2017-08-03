@@ -13,6 +13,12 @@ config(['$locationProvider', '$routeProvider',
         when('/phones/:phoneId', {
             template: '<phone-detail></phone-detail>'
         }).
+        when('/about', {
+            template: '<about></about>'
+        }).
+        when('/contact', {
+            template: '<contact></contact>'
+        }).
         otherwise('/phones');
     }
 ]);

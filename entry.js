@@ -18,7 +18,17 @@ require("./app/core/checkmark/checkmark.filter.js");
 require("./app/core/range/range.filter.js");
 require("./app/core/phone/phone.module.js");
 require("./app/core/phone/phone.service.js");
+
+require("./app/core/nav-bar/nav-bar.module.js");
+require("./app/core/nav-bar/nav-bar.component.js");
+
 require("./app/phone-list/phone-list.module.js");
 require("./app/phone-list/phone-list.component.js");
 require("./app/phone-detail/phone-detail.module.js");
 require("./app/phone-detail/phone-detail.component.js");
+
+require("./app/about/about.module.js");
+require("./app/about/about.component.js");
+
+require("./app/contact/contact.module.js");
+require("./app/contact/contact.component.js");

@@ -5,6 +5,9 @@ angular.module('catalogApp', [
     'ngAnimate',
     'ngRoute',
     'core',
+    'navBar',
     'phoneDetail',
-    'phoneList'
+    'phoneList',
+    'about',
+    'contact'
 ]);
