@@ -31,7 +31,8 @@ component('phoneList', {
                     { name: '5 - 5.5"', value: '^5[^0-9]$|^5\.[0-5]' },
                     { name: '5.5 - 6"', value: '^5\.[5-9]|^6[^0-9]$' },
                     { name: '6" и более', value: '^[6-7]' }
-                ]
+                ],
+                "Разрешение": ["540x960 (qHD)", "720x1280 (HD)", "1080x1920 (FullHD)", "1440x2560 (QHD)"]
             }
 
             var Facets = $resource('http://localhost:8080/facets/:field', {});
@@ -52,6 +53,13 @@ component('phoneList', {
                         }
                     }
                 }
+            }
+
+
+            self.setPrice = function(key) {
+                if (self.price[key].length < 4) return;
+                self.search.price = { min: self.price.min ? self.price.min : 0, max: self.price.max ? self.price.max : 999999 };
+                self.find();
             }
 
             self.setParam = function(name, text) {
@@ -131,6 +139,15 @@ component('phoneList', {
                     self.setPages(page, self.info.pages);
                 });
             };
+
+            self.isEmpty = function(obj) {
+                for (var prop in obj) {
+                    if (obj.hasOwnProperty(prop))
+                        return false;
+                }
+
+                return JSON.stringify(obj) === JSON.stringify({});
+            }
 
 
         }

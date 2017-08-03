@@ -24,12 +24,16 @@ function reParam(params) {
 
 export function countPhones(search) {
     if (search.param) search.param = reParam(search.param);
+    if (search.price) search.price = { $gte: search.price.min, $lte: search.price.max };
+
     return Phone.count(search);
 }
 
 export function listPhones(search, curPage, limit) {
     var start = curPage * limit - limit;
     if (search.param) search.param = reParam(search.param);
+    if (search.price) search.price = { $gte: search.price.min, $lte: search.price.max };
+
     return Phone.find(search).skip(start).limit(limit);
 }
 
