@@ -79,11 +79,41 @@ h3 {
     border-radius: 0px;
 }
 
-.my-list li {
-    padding: 5px 30px;
+.my-cloud {
+    padding: 5px;
     font-size: 125%;
+}
+
+.my-cloud .first {
+    color: DarkOrange;
+}
+
+.my-cloud .second {
+    color: Red;
+}
+
+.my-cloud .third {
+    color: DarkRed;
+}
+
+.my-cloud .third div:nth-child(2) {
+    color: Gold;
 }
 
 .disabled {
     color: gray;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: white;
+}
+
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-toggle:hover {
+    background: darkblue
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: RoyalBlue;
 }

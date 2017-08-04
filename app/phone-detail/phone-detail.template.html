@@ -1,26 +1,28 @@
-<div class="row">
+<!-- SM, MD, LG -->
+<div class="row visible-sm visible-md visible-lg">
     <!-- photos -->
-    <div class="col-md-1">
+    <div class="col-md-1 col-sm-3 visible-sm visible-md visible-lg">
         <div style="height:60px;" class="thumbnail" ng-repeat="img in $ctrl.phone.picture" ng-click="$ctrl.setImage(img)">
             <img style="max-height:50px;" ng-src="{{img}}" class="img-responsive">
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-9">
         <img class="img-responsive center-block" style="max-height: 600px;" ng-src="{{$ctrl.mainImageUrl}}" />
-        <!-- <img ng-src="{{$ctrl.phone.picture[0]}}" class="img-responsive"> -->
     </div>
-    <div class="col-xs-7">
+    <div class="col-md-7 col-sm-12">
         <div class="row">
             <h3>{{$ctrl.phone.name}}</h3>
         </div>
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-md-8 col-sm-12">
                 <div class="row my-short-info" ng-repeat="el in $ctrl.phone.param" ng-if="$ctrl.params.includes(el['@name'])">
                     <div class="col-xs-6">{{el['@name']}}</div>
                     <div class="col-xs-6">{{el['#text'] + ' ' + el['@unit']}}</div>
                 </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-md-4 col-sm-4">
+                <br class="visible-xs visible-sm">
+
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h3>{{$ctrl.phone.price | currency:default:0}}</h3>
@@ -30,10 +32,42 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<!-- XS -->
+<div class="visible-xs">
+    <div class="row">
+        <div class="col-xs-8">
+            <h3>{{$ctrl.phone.name}}</h3>
+        </div>
+        <div class="col-xs-4">
+            <h3 style="display:inline-block">{{$ctrl.phone.price | currency:default:0}} <button class="btn bg-blue color-white"><span style="cursor: pointer" onclick="alert('later')" class="glyphicon glyphicon-shopping-cart"></span></button></h3>
+            <!-- <h3 class="bg-blue color-white" style="cursor: pointer" onclick="alert('later')">Добавить в корзину</h3> -->
+        </div>
+    </div>
+
+    <!-- photos -->
+    <div class="row">
+        <div class="col-xs-12">
+            <img class="img-responsive center-block" style="max-height: 600px;" ng-src="{{$ctrl.mainImageUrl}}" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <br>
+            <div class="row">
+                <div style="height:60px; margin:5px" class="thumbnail col-xs-2" ng-repeat="img in $ctrl.phone.picture" ng-click="$ctrl.setImage(img)">
+                    <img style="max-height:50px;" ng-src="{{img}}" class="img-responsive">
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <!-- /photos -->
+</div>
+
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-md-10 col-xs-12">
         <h3>Описание</h3>
 
         {{$ctrl.phone.description}}
@@ -41,11 +75,11 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-md-10 col-xs-12">
         <h3>Характеристики</h3>
         <div class="row my-full-info" ng-repeat="el in $ctrl.phone.param">
             <div class="col-xs-6">{{el['@name']}}</div>
-            <div class="col-xs-6">{{el['#text'] + ' ' + el['@unit']}}</div>
+            <div class="col-xs-6" style="word-wrap: break-word;">{{el['#text'] + ' ' + el['@unit']}}</div>
         </div>
     </div>
 </div>
@@ -53,5 +87,3 @@
 
 <br>
 <br>
-<!-- 
-style="background:top right url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAANCAIAAAABnFjhAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABxJREFUeNpi/P//PwMMMDEggUHAuX79OpwDEGAAGB4FnHfhVQUAAAAASUVORK5CYII=') repeat-x" -->

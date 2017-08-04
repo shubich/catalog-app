@@ -10,23 +10,21 @@
             <a class="navbar-brand" href="#" ng-click="$ctrl.setActiveItem(0)">Mobile Catalog</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <form class="navbar-form navbar-right">
-                <div class="input-group">
-                    <button class="btn btn-default navbar-right" id="my-cart-but"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="badge">4</span></button>
-                </div>
-            </form>
+            <ul class="nav navbar-nav">
+                <li ng-repeat="item in $ctrl.items" class="{{item.class}}"><a href="{{item.link}}" ng-click="$ctrl.setActiveItem($index)">{{item.name}}</a></li>
+            </ul>
 
-            <form class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right" role="search" onclick="alert('later')">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search">
                     <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </span>
                 </div>
+                <div class="input-group">
+                    <button class="btn btn-default navbar-right" id="my-cart-but"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="badge">4</span></button>
+                </div>
             </form>
-            <ul class="nav navbar-nav">
-                <li ng-repeat="item in $ctrl.items" class="{{item.class}}"><a href="{{item.link}}" ng-click="$ctrl.setActiveItem($index)">{{item.name}}</a></li>
-            </ul>
         </div>
         <!--/.nav-collapse -->
     </div>

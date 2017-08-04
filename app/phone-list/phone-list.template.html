@@ -59,32 +59,33 @@
             <a href="#" style="color: black;"><span title="Сбросить" ng-if="!$ctrl.isEmpty($ctrl.search)" class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>
         </div>
     </div>
+    <br class="visible-xs visible-sm">
     <div class="col-md-9">
         <!-- phone -->
         <div ng-repeat="phone in $ctrl.phones">
             <div class="row">
                 <!--img  -->
-                <div class="col-md-3 text-center">
+                <div class="col-xs-3 text-center">
                     <a href="#!/phones/{{phone._id}}">
                         <img ng-src="{{phone.picture[0]}}" alt="{{phone.name}}" height="150">
                     </a>
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-9">
                     <!-- name & price -->
                     <div class="row" style="font-size: 125%">
-                        <div class="col-md-10">
+                        <div class="col-xs-10">
                             <b>
                                 <a href="#!/phones/{{phone._id}}" style="color: black;">
                                     {{phone.name}}
                                 </a>
                             </b>
                         </div>
-                        <div class="col-md-2 text-right"><b>{{phone.price | currency:default:0}}</b></div>
+                        <div class="col-xs-2 text-right"><b>{{phone.price | currency:default:0}}</b></div>
                     </div>
                     <br>
                     <!-- description -->
                     <div class="row">
-                        <div class="col-md-10">
+                        <div class="col-xs-10">
                             <p>{{$ctrl.getPhoneInfo(phone.info)}}</p>
                         </div>
                     </div>

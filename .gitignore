@@ -1,5 +1,2 @@
 # игнорировать все файлы в каталоге node_modules/
 node_modules/
-other-phones/
-*-lol*
-*.spec.js
