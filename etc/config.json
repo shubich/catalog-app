@@ -4,7 +4,9 @@
     "db": {
         "name": "catalog",
         "host": "localhost",
-        "port": 27017
+        "port": 27017,
+        "user": "shubich",
+        "password": "shubich"
     },
     "recordLimit": 10
 }

@@ -7,7 +7,8 @@ import '../models/Phone';
 const Phone = mongoose.model('Phone');
 
 export function setUpConnection() {
-    mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+    //mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+    mongoose.connect('mongodb://${config.db.user}:${config.db.password}@ds129723.mlab.com:29723/${config.db.name}');
 }
 
 function reParam(params) {
