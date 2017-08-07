@@ -5,8 +5,8 @@ angular.
 module('about').
 component('about', {
     templateUrl: 'about/about.template.html',
-    controller: ['$routeParams',
-        function AboutController($routeParams) {
+    controller: [
+        function AboutController() {
             var self = this;
         }
     ]

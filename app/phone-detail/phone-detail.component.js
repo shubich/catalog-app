@@ -5,12 +5,12 @@ angular.
 module('phoneDetail').
 component('phoneDetail', {
     templateUrl: 'phone-detail/phone-detail.template.html',
-    controller: ['$routeParams', 'Phone',
-        function PhoneDetailController($routeParams, Phone) {
+    controller: ['$stateParams', 'Phone',
+        function PhoneDetailController($stateParams, Phone) {
             var self = this;
             self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
 
-            self.phone = Phone.get({ phoneId: $routeParams.phoneId }, function(phone) {
+            self.phone = Phone.get({ phoneId: $stateParams.phoneId }, function(phone) {
                 self.setImage(phone.picture[0]);
             });
 

@@ -3,7 +3,7 @@
 // Define the `catalogApp` module
 angular.module('catalogApp', [
     'ngAnimate',
-    'ngRoute',
+    'ui.router',
     'core',
     'navBar',
     'phoneDetail',

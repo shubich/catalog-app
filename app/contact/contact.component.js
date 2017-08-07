@@ -5,8 +5,8 @@ angular.
 module('contact').
 component('contact', {
     templateUrl: 'contact/contact.template.html',
-    controller: ['$routeParams',
-        function ContactController($routeParams) {
+    controller: [
+        function ContactController() {
             var self = this;
         }
     ]

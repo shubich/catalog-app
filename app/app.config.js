@@ -2,23 +2,31 @@
 
 angular.
 module('catalogApp').
-config(['$locationProvider', '$routeProvider',
-    function config($locationProvider, $routeProvider) {
-        $locationProvider.hashPrefix('!');
+config(['$stateProvider', '$urlRouterProvider',
+    function config($stateProvider, $urlRouterProvider) {
 
-        $routeProvider.
-        when('/phones', {
-            template: '<phone-list></phone-list>'
-        }).
-        when('/phones/:phoneId', {
-            template: '<phone-detail></phone-detail>'
-        }).
-        when('/about', {
-            template: '<about></about>'
-        }).
-        when('/contact', {
-            template: '<contact></contact>'
-        }).
-        otherwise('/phones');
+        var states = [
+            { name: 'about', url: '/about', component: 'about' },
+            { name: 'contact', url: '/contact', component: 'contact' },
+
+            {
+                name: 'phones',
+                url: '/phones',
+                component: 'phoneList'
+            },
+
+            {
+                name: 'phoneDetail',
+                url: '/phones/{phoneId}',
+                component: 'phoneDetail'
+            }
+
+        ];
+
+        // Loop over the state definitions and register them
+        states.forEach(function(state) {
+            $stateProvider.state(state);
+        });
+        $urlRouterProvider.otherwise('/phones');
     }
 ]);
