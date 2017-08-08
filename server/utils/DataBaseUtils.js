@@ -22,18 +22,20 @@ function reParam(params) {
     return { $all: reParams };
 }
 
-export function countPhones(search) {
+function prepare(search) {
     if (search.param) search.param = reParam(search.param);
+    if (search.name) search.name = new RegExp(search.name, 'i');
     if (search.price) search.price = { $gte: search.price.min, $lte: search.price.max };
+}
 
+export function countPhones(search) {
+    prepare(search);
     return Phone.count(search);
 }
 
 export function listPhones(search, curPage, limit) {
     var start = curPage * limit - limit;
-    if (search.param) search.param = reParam(search.param);
-    if (search.price) search.price = { $gte: search.price.min, $lte: search.price.max };
-
+    prepare(search);
     return Phone.find(search).skip(start).limit(limit);
 }
 

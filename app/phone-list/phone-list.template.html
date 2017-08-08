@@ -1,39 +1,40 @@
 <div class="row">
     <div class="col-md-3 list-group list-group-item">
-        <div>
-            <p><b>Производитель</b></p>
-            <select class="form-control" id="sel1" ng-model="$ctrl.search.vendor" ng-change="$ctrl.find()">
+        <form>
+            <div>
+                <p><b>Производитель</b></p>
+                <select class="form-control" id="sel1" ng-model="$ctrl.search.vendor" ng-change="$ctrl.find()">
                 <option value="">Все</option>
                 <option ng-repeat="vendor in $ctrl.vendors">{{vendor}}</option>
             </select>
-        </div>
-        <br>
-        <div>
-            <p><b>Минимальная цена</b></p>
-            <div class="row">
-                <div class="col-xs-6" style="padding-right: 0;">
-                    <input maxlength="6" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" ng-model="$ctrl.price.min" ng-change="$ctrl.setPrice('min')" type="text" class="form-control" placeholder="от" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div>
+                <p><b>Минимальная цена</b></p>
+                <div class="row">
+                    <div class="col-xs-6" style="padding-right: 0;">
+                        <input maxlength="6" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" ng-model="$ctrl.price.min" ng-change="$ctrl.setPrice('min')" type="text" class="form-control" placeholder="от" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="col-xs-6" style="padding-left: 0;">
+                        <input maxlength="6" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none" ng-model="$ctrl.price.max" ng-change="$ctrl.setPrice('max')" type="text" class="form-control" placeholder="до" aria-describedby="basic-addon1">
+                    </div>
                 </div>
-                <div class="col-xs-6" style="padding-left: 0;">
-                    <input maxlength="6" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none" ng-model="$ctrl.price.max" ng-change="$ctrl.setPrice('max')" type="text" class="form-control" placeholder="до" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div>
+                <p><b>Операционная система</b></p>
+                <div class="checkbox" ng-repeat="os in $ctrl.facets['Операционная система']">
+                    <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', os)">{{os}}</label>
                 </div>
             </div>
-        </div>
-        <br>
-        <div>
-            <p><b>Операционная система</b></p>
-            <div class="checkbox" ng-repeat="os in $ctrl.facets['Операционная система']">
-                <label><input type="checkbox" ng-click="$ctrl.setParam('Операционная система', os)">{{os}}</label>
+            <br>
+            <div>
+                <p><b>Размер экрана</b></p>
+                <div class="checkbox" ng-repeat="diagonal in $ctrl.facets['Диагональ']">
+                    <label><input type="checkbox" ng-click="$ctrl.setParam('Диагональ', diagonal.value)">{{diagonal.name}}</label>
+                </div>
             </div>
-        </div>
-        <br>
-        <div>
-            <p><b>Размер экрана</b></p>
-            <div class="checkbox" ng-repeat="diagonal in $ctrl.facets['Диагональ']">
-                <label><input type="checkbox" ng-click="$ctrl.setParam('Диагональ', diagonal.value)">{{diagonal.name}}</label>
-            </div>
-        </div>
-        <!-- <br>
+            <!-- <br>
         <div>
             <p><b>Разрешение экрана</b></p>
             <div class="row">
@@ -51,13 +52,18 @@
                 </div>
             </div>
         </div> -->
-        <hr>
-        <div>
-            <p><a href="" onclick="alert('nothing here yet')">Дополнительные параметры</a></p>
-        </div>
-        <div class="well well-sm">Найдено {{$ctrl.info.count}} товаров
-            <a href="#" style="color: black;"><span title="Сбросить" ng-if="!$ctrl.isEmpty($ctrl.search)" class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>
-        </div>
+            <hr>
+            <div>
+                <p><a href="" onclick="alert('nothing here yet')">Дополнительные параметры</a></p>
+                <p>{{$ctrl.rs.name}}</p>
+            </div>
+            <input type="reset" value="Reset" id="reset" class="hidden">
+            <div class="well well-sm">Найдено {{$ctrl.info.count}} товаров
+                <label for="reset" class="pull-right">
+                    <span title="Сбросить" ng-click="$ctrl.clear()" ng-if="!$ctrl.isEmpty($ctrl.search)" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </label>
+            </div>
+        </form>
     </div>
     <br class="visible-xs visible-sm">
     <div class="col-md-9">

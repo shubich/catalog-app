@@ -5,22 +5,34 @@ angular.
 module('phoneList').
 component('phoneList', {
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: ['Phone', '$resource',
-        function PhoneListController(Phone, $resource) {
+    controller: ['Phone', '$resource', '$rootScope', '$state',
+        function PhoneListController(Phone, $resource, $rootScope, $state) {
             var self = this;
+            self.rs = $rootScope;
+
+            self.rs.$watch('name', function(newValue, oldValue) {
+                if (newValue !== undefined && $state.current.name == 'phones') {
+                    self.search.name = newValue;
+                    self.find();
+                }
+            });
+
             self.search = {};
             self.curPage = 1;
             self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
 
-            self.phones = Phone.query(function() {
-                self.setPhoneInfo();
-            });
-
             var Info = $resource('http://localhost:8080/info', {});
-            Info.get({}, function(data) {
-                self.info = data;
-                self.setPages(self.curPage, data.pages);
-            });
+
+            if (self.rs.name == undefined) {
+                self.phones = Phone.query(function() {
+                    self.setPhoneInfo();
+                });
+
+                Info.get({}, function(data) {
+                    self.info = data;
+                    self.setPages(self.curPage, data.pages);
+                });
+            }
 
             self.facets = {
                 "Операционная система": ["Android", "iOS", "Windows"],
@@ -138,6 +150,12 @@ component('phoneList', {
                     self.curPage = page;
                     self.setPages(page, self.info.pages);
                 });
+            };
+
+            self.clear = function() {
+                self.search = {};
+                delete $rootScope.name;
+                self.find();
             };
 
             self.isEmpty = function(obj) {
