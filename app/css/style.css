@@ -70,6 +70,10 @@ h3 {
     background: #2874f0;
 }
 
+.bg-red {
+    background: #d43f3a;
+}
+
 .color-white {
     color: white;
 }

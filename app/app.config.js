@@ -8,6 +8,7 @@ config(['$stateProvider', '$urlRouterProvider',
         var states = [
             { name: 'about', url: '/about', component: 'about' },
             { name: 'contact', url: '/contact', component: 'contact' },
+            { name: 'cart', url: '/cart', component: 'cart' },
 
             {
                 name: 'phones',

@@ -32,3 +32,6 @@ require("./app/about/about.component.js");
 
 require("./app/contact/contact.module.js");
 require("./app/contact/contact.component.js");
+
+require("./app/cart/cart.module.js");
+require("./app/cart/cart.component.js");

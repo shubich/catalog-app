@@ -29,6 +29,14 @@ app.get('/phones', (req, res) => {
     });
 });
 
+app.get('/cart', (req, res) => {
+    var search = req.query.search ? JSON.parse(req.query.search) : {};
+
+    db.cart(search).then(data => {
+        res.send(data);
+    });
+});
+
 app.get('/info', (req, res) => {
     var search = req.query.search ? JSON.parse(req.query.search) : {};
 

@@ -39,6 +39,14 @@ export function listPhones(search, curPage, limit) {
     return Phone.find(search).skip(start).limit(limit);
 }
 
+export function cart(search) {
+    var q = [];
+    for (var i = 0; i < search.length; i++) {
+        q.push({ '_id': search[i] });
+    }
+    return Phone.find({ $or: q });
+}
+
 export function getPhone(id) {
     return Phone.findById(id);
 }

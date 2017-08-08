@@ -10,6 +10,8 @@ component('navBar', {
 
             self.rs = $rootScope;
 
+            self.rs.cartCount = JSON.parse(localStorage.getItem("cart")).length;
+
             self.items = [{
                 name: 'Home',
                 link: 'phones'

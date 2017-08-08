@@ -9,5 +9,6 @@ angular.module('catalogApp', [
     'phoneDetail',
     'phoneList',
     'about',
-    'contact'
+    'contact',
+    'cart'
 ]);
