@@ -16,7 +16,7 @@
 
             <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" ng-model="$ctrl.rs.name">
+                    <input ng-model-options="{ debounce: 1000 }" type="text" class="form-control" placeholder="Search" ng-model="$ctrl.rs.name">
                     <span class="input-group-btn">
                             <button type="submit" ui-sref="phones" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </span>

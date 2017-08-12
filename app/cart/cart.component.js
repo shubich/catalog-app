@@ -5,8 +5,8 @@ angular.
 module('cart').
 component('cart', {
     templateUrl: 'cart/cart.template.html',
-    controller: ['$stateParams', '$resource', 'Phone', '$window', '$rootScope',
-        function CartController($stateParams, $resource, Phone, $window, $rootScope) {
+    controller: ['$stateParams', '$resource', '$window', '$rootScope',
+        function CartController($stateParams, $resource, $window, $rootScope) {
             var self = this;
 
             self.rs = $rootScope;
