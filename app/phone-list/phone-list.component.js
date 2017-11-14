@@ -69,7 +69,6 @@ component('phoneList', {
 
 
             self.setPrice = function(key) {
-                if (self.price[key].length < 4) return;
                 self.search.price = { min: self.price.min ? self.price.min : 0, max: self.price.max ? self.price.max : 999999 };
                 self.find();
             }

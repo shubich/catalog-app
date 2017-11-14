@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" id="my-nav">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -16,13 +16,13 @@
 
             <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" ng-model="$ctrl.rs.name">
+                    <input ng-model-options="{ debounce: 1000 }" type="text" class="form-control" placeholder="Search" ng-model="$ctrl.rs.name">
                     <span class="input-group-btn">
                             <button type="submit" ui-sref="phones" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </span>
                 </div>
                 <div class="input-group">
-                    <button ui-sref="cart" class="btn btn-default navbar-right" id="my-cart-but"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="badge">{{$ctrl.rs.cartCount}}</span></button>
+                    <button ui-sref="cart" class="btn btn-default navbar-right" id="cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="badge">{{$ctrl.rs.cartCount}}</span></button>
                 </div>
             </form>
         </div>
