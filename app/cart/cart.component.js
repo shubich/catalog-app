@@ -4,14 +4,14 @@
 angular.
 module('cart').
 component('cart', {
-    templateUrl: 'cart/cart.template.html',
+    templateUrl: './cart/cart.template.html',
     controller: ['$stateParams', '$resource', '$window', '$rootScope',
         function CartController($stateParams, $resource, $window, $rootScope) {
             var self = this;
 
             self.rs = $rootScope;
 
-            var Cart = $resource('http://localhost:8080/cart', {});
+            var Cart = $resource('/cart', {});
             var cart = $window.localStorage.cart;
 
             if (cart !== '[]') {

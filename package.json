@@ -4,10 +4,12 @@
     "description": "Catalog application",
     "main": "server/app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "server": "nodemon server/app.js --exec babel-node --presets es2015,stage-2",
-        "webpack-devserver": "webpack-dev-server --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base app --port 8090 --host 0.0.0.0",
-        "dev": "concurrently --kill-others \"npm run server\" \"npm run webpack-devserver\""
+        "build": "webpack --config=webpack.config.development.js",
+        "build-prod": "webpack -p --progress --config=webpack.config.production.js",
+        "server": "babel-node server/app.js",
+        "nodemon": "nodemon server/app.js --exec babel-node --presets es2015,stage-2",
+        "start": "npm run build-prod && npm run server",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
@@ -34,18 +36,27 @@
         "body-parser": "^1.17.2",
         "bootstrap": "^3.3.7",
         "cors": "^2.8.4",
-        "css-loader": "^0.28.4",
         "express": "^4.15.3",
-        "file-loader": "^0.11.2",
         "http-server": "^0.10.0",
         "jquery": "^3.2.1",
-        "mongoose": "^4.11.3",
-        "style-loader": "^0.18.2"
+        "mongoose": "^4.11.3"
     },
     "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-preset-stage-2": "^6.24.1",
-        "concurrently": "^3.5.0"
+        "babel-cli": "^6.26.0",
+        "babel-core": "6.26.0",
+        "babel-loader": "7.1.2",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-es2015": "6.24.1",
+        "babel-preset-stage-2": "6.24.1",
+        "css-loader": "0.28.7",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "file-loader": "^1.1.5",
+        "html-webpack-plugin": "^2.30.1",
+        "nodemon": "^1.14.10",
+        "regenerator-runtime": "^0.11.0",
+        "style-loader": "0.18.2",
+        "uglifyjs-webpack-plugin": "^1.1.6",
+        "webpack": "^3.6.0"
     }
 }

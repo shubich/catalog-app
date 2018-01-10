@@ -3,7 +3,7 @@
 angular.
 module('navBar').
 component('navBar', {
-    templateUrl: 'nav-bar/nav-bar.template.html',
+    templateUrl: './nav-bar/nav-bar.template.html',
     controller: ['$resource', '$rootScope',
         function NavBarController($resource, $rootScope) {
             var self = this;

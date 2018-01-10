@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
@@ -18,6 +19,14 @@ app.use(bodyParser.json());
 
 // Allow requests from any origin
 app.use(cors({ origin: '*' }));
+
+app.use(express.static(path.join(__dirname, '../public/')));
+app.use(express.static(path.join(__dirname, '../screenshots/')));
+app.use(express.static(path.join(__dirname, '../app/')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+})
 
 // RESTful api handlers
 app.get('/phones', (req, res) => {

@@ -4,7 +4,7 @@
 angular.
 module('phoneList').
 component('phoneList', {
-    templateUrl: 'phone-list/phone-list.template.html',
+    templateUrl: './phone-list/phone-list.template.html',
     controller: ['Phone', '$resource', '$rootScope', '$state',
         function PhoneListController(Phone, $resource, $rootScope, $state) {
             var self = this;
@@ -21,7 +21,7 @@ component('phoneList', {
             self.curPage = 1;
             self.params = ["Операционная система", "Диагональ", "Технология матрицы", "Разрешение", "Оперативная память", "Встроенная память", "Поддержка карт памяти", "Разрешение основной тыловой камеры", "Емкость аккумулятора", "Число SIM-карт", "Цвет"];
 
-            var Info = $resource('http://localhost:8080/info', {});
+            var Info = $resource('/info', {});
 
             if (self.rs.name == undefined) {
                 self.phones = Phone.query(function() {
@@ -47,7 +47,7 @@ component('phoneList', {
                 "Разрешение": ["540x960 (qHD)", "720x1280 (HD)", "1080x1920 (FullHD)", "1440x2560 (QHD)"]
             }
 
-            var Facets = $resource('http://localhost:8080/facets/:field', {});
+            var Facets = $resource('/facets/:field', {});
             Facets.query({ field: "vendor" }, function(data) {
                 self.vendors = data.sort();
             })
